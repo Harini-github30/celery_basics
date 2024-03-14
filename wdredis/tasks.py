@@ -1,6 +1,12 @@
 from celery import Celery
+import os
+from dotenv import load_dotenv
 
-app = Celery('tasks', msgbroker='redis://localhost:6379/0',backend='redis://localhost:6379/1')
+load_dotenv()
+redis_broker = os.getenv("redis_broker")
+redis_backend = os.getenv("redis_backend")
+
+app = Celery('tasks', msgbroker=redis_broker,backend=redis_backend)
 
 ##backend connection is not necessary until some data is stored in redis
 ##6379 is the port in which redis runs

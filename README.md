@@ -25,5 +25,7 @@ CELERY BEAT
 
 celery beat is more like a cronjob scheduler that makes the job to run periodically
 
+argumetns of crontab ---> crontab(minute='', hour='', day_of_month='', month_of_year='', day_of_week=''),
+  
 to use celery beat in a normal python function without django 
 use the command   "celery -A filename beat --loglevel=info"
